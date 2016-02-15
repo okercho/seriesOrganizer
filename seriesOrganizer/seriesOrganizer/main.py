@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-import os, shutil, urllib2
+import os, shutil, urllib2, datetime
 
 
 #Variables 
@@ -28,6 +28,7 @@ def extension(capitulo):
     return ext
 
 ## MAIN ##
+print datetime.datetime.now()
 for base, dirs,files in os.walk(carpetaSeries):
     carpeta = base.replace(carpetaSeries,'')
     if len(carpeta) > 1:
@@ -57,5 +58,5 @@ for base, dirs,files in os.walk(carpetaSeries):
                 os.rename(carpetaSeries+carpeta+"/"+cap,carpetaDestino+serie+"/"+temp+"/"+nuevoNombre)
             shutil.rmtree(carpetaSeries+carpeta)
             print "-------------"
-
+print datetime.datetime.now()
 urllib2.urlopen("http://"+servidorPlex+"/library/sections/all/refresh")
